@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trader Dashboard</title>
+</head>
+<body>
+  <h1>Trading Signal</h1>
+  <button onclick="getSignal()">Get Signal</button>
+  <p id="result"></p>
+
+  <script>
+    async function getSignal() {
+      const res = await fetch("https://your-backend-url.onrender.com/signal");
+      const data = await res.json();
+      document.getElementById("result").innerText =
+        data.signal + " (" + data.confidence + "%)";
+    }
+  </script>
+</body>
+</html>
